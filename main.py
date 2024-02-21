@@ -96,7 +96,7 @@ server = app.server
 # App layout
 app.layout = html.Div([
     html.H1('Child Stunting Dashboard', style={'textAlign': 'center'}),
-    html.P('This dashboard provides an overview of child nutrition and EUD Programme activities for Improved NUtrition in Sindh.', style={'textAlign': 'center'}),
+    html.P('This dashboard provides an overview of Child stunting and EUD Programme activities for Improved Nutrition in Sindh.', style={'textAlign': 'center'}),
     html.Div(style={'display': 'flex', 'flexDirection': 'row'}, children=[
         html.Div(style={'width': '30%', 'paddingRight': '20px'}, children=[
             html.Div([
