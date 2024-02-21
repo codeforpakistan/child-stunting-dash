@@ -92,10 +92,11 @@ fig_bar = px.bar(df_tehsil_stats, x='Tehsil', y='Child Stunting Rate (%)', title
 fig_pie = px.pie(df_tehsil_stats, names='Tehsil', values='Access to Clean Water (%)', title="Access to Clean Water by Tehsil")
 
 app = dash.Dash(__name__)
+server = app.server
 # App layout
 app.layout = html.Div([
     html.H1('Child Stunting Dashboard', style={'textAlign': 'center'}),
-    html.P('This dashboard provides an overview of child nutrition and partner activities in Sindh, Pakistan.', style={'textAlign': 'center'}),
+    html.P('This dashboard provides an overview of child nutrition and EUD Programme activities for Improved NUtrition in Sindh.', style={'textAlign': 'center'}),
     html.Div(style={'display': 'flex', 'flexDirection': 'row'}, children=[
         html.Div(style={'width': '30%', 'paddingRight': '20px'}, children=[
             html.Div([
