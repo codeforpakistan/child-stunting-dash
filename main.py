@@ -98,14 +98,13 @@ app.layout = html.Div([
     html.H1('Child Stunting Dashboard', style={'textAlign': 'center'}),
     html.P('This dashboard provides an overview of Child stunting and EUD Programme activities for Improved Nutrition in Sindh.', style={'textAlign': 'center'}),
     html.Div(style={'display': 'flex', 'flexDirection': 'row'}, children=[
-        html.Div(style={'width': '30%', 'paddingRight': '20px'}, children=[
+        html.Div(style={'width': '50%', 'paddingRight': '20px'}, children=[
             html.Div([
                 html.H3('Controls', style={'padding': '10px', 'backgroundColor': '#f0f0f0', 'borderRadius': '5px', 'textAlign': 'center'}),
-                dcc.Input(id='search_box', type='text', placeholder='Search...', style={'margin': '10px 0', 'width': '90%'}),
                 dcc.Dropdown(
                     id='filter_dropdown',
-                    options=[{'label': 'Option 1', 'value': 'OPT1'}, {'label': 'Option 2', 'value': 'OPT2'}],
-                    placeholder='Select a filter...',
+                    options=[{'label': 'Access to Clean Water', 'value': 'OPT1'}, {'label': 'Basic Healthcare Availability', 'value': 'OPT2'}],
+                    placeholder='Select a KPI...',
                     style={'marginBottom': '20px', 'width': '90%'}
                 )
             ], style={'marginBottom': '20px'}),
@@ -121,7 +120,7 @@ app.layout = html.Div([
                 style_table={'overflowX': 'auto', 'height': '30vh'}
             )
         ]),
-        html.Div(style={'width': '70%'}, children=[
+        html.Div(style={'width': '50%'}, children=[
             dcc.Graph(figure=fig_map, style={'height': '90vh'})
         ])
     ])
