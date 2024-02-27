@@ -6,6 +6,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 from io import StringIO
 import dash_table
+from datetime import datetime
 
 
 # Load the GeoJSON file
@@ -152,6 +153,7 @@ server = app.server
 
 app.layout = html.Div(
     [
+
         html.Div(
             [
                 html.H1(
@@ -176,10 +178,59 @@ app.layout = html.Div(
         ),
         html.Div(
             [
+                dcc.Dropdown(
+                    id="kpi-dropdown",
+                    options=[
+                        {"label": "Number of Houses", "value": "Number of Houses"},
+                        {"label": "Number of Commercial Buildings", "value": "Number of Commercial Buildings"},
+                        {"label": "Number of Industrial Units", "value": "Number of Industrial Units"},
+                        {"label": "Number of Public Buildings", "value": "Number of Public Buildings"},
+                        {"label": "Number of Educational Buildings", "value": "Number of Educational Buildings"},
+                        {"label": "Number of Health Buildings", "value": "Number of Health Buildings"},
+                        {"label": "Total Area", "value": "Total Area"},
+                        {"label": "Developed Area", "value": "Developed Area"},
+                        {"label": "Undeveloped Area", "value": "Undeveloped Area"},
+                        {"label": "Agricultural Area", "value": "Agricultural Area"},
+                        {"label": "Non-Agricultural Area", "value": "Non-Agricultural Area"},
+                        {"label": "Forest Area", "value": "Forest Area"},
+                        {"label": "Water Bodies", "value": "Water Bodies"},
+                        {"label": "Population", "value": "Population"}
+                    ],
+                    value="Number of Houses",  # Default value
+                    clearable=False,
+                    style={"width": "60%", "paddingLeft": "10px", "paddingRight": "10px"}
+                ),
+                dcc.DatePickerRange(
+                    id="date-picker",
+                    # initial_visible_month=datetime.date.today(),
+                ),
+            ],
+            style={"display": "flex", "justifyContent": "center", "marginBottom": "20px", "border": "2px solid #007BFF",
+                "borderRadius": "15px",
+                "padding": "10px",
+                "boxShadow": "0 4px 8px 0 rgba(0,0,0,0.2)",
+                "margin": "10px",
+                "marginTop": "40px",},
+        ),
+        html.Div(
+            [
+                dcc.Graph(figure=fig_map, style={"height": "90vh"}),
+            ],
+            style={
+                "border": "2px solid #007BFF",
+                "borderRadius": "15px",
+                "padding": "10px",
+                "boxShadow": "0 4px 8px 0 rgba(0,0,0,0.2)",
+                "margin": "10px",
+                "marginTop": "40px",
+            },
+        ),
+        html.Div(
+            [
                 html.Div(
                     [
                         dcc.Graph(figure=fig_bar),
-                        dcc.Graph(figure=fig_pie),
+                        # dcc.Graph(figure=fig_pie),
                     ],
                     style={
                         "flex": "50%",  # Adjust based on preference
@@ -221,19 +272,7 @@ app.layout = html.Div(
                 "alignItems": "stretch",
             },
         ),
-        html.Div(
-            [
-                dcc.Graph(figure=fig_map, style={"height": "90vh"}),
-            ],
-            style={
-                "border": "2px solid #007BFF",
-                "borderRadius": "15px",
-                "padding": "10px",
-                "boxShadow": "0 4px 8px 0 rgba(0,0,0,0.2)",
-                "margin": "10px",
-                "marginTop": "40px",
-            },
-        ),
+       
     ],
     style={
         "fontFamily": "Arial, sans-serif",
