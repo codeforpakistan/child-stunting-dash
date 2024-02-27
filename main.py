@@ -179,33 +179,33 @@ app.layout = html.Div(
         html.Div(
             [
                 dcc.Dropdown(
-                    id="kpi-dropdown",
-                    options=[
-                        {"label": "Number of Houses", "value": "Number of Houses"},
-                        {"label": "Number of Commercial Buildings", "value": "Number of Commercial Buildings"},
-                        {"label": "Number of Industrial Units", "value": "Number of Industrial Units"},
-                        {"label": "Number of Public Buildings", "value": "Number of Public Buildings"},
-                        {"label": "Number of Educational Buildings", "value": "Number of Educational Buildings"},
-                        {"label": "Number of Health Buildings", "value": "Number of Health Buildings"},
-                        {"label": "Total Area", "value": "Total Area"},
-                        {"label": "Developed Area", "value": "Developed Area"},
-                        {"label": "Undeveloped Area", "value": "Undeveloped Area"},
-                        {"label": "Agricultural Area", "value": "Agricultural Area"},
-                        {"label": "Non-Agricultural Area", "value": "Non-Agricultural Area"},
-                        {"label": "Forest Area", "value": "Forest Area"},
-                        {"label": "Water Bodies", "value": "Water Bodies"},
-                        {"label": "Population", "value": "Population"}
-                    ],
-                    value="Number of Houses",  # Default value
-                    clearable=False,
-                    style={"width": "60%", "paddingLeft": "10px", "paddingRight": "10px"}
-                ),
+                id="kpi-dropdown",
+                options=[
+                    {"label": "Poverty Rate (%)", "value": "Poverty Rate (%)"},
+                    {"label": "National Poverty Rank (N)", "value": "National Poverty Rank (N)"},
+                    {"label": "Provincial Poverty Rank (N)", "value": "Provincial Poverty Rank (N)"},
+                    {"label": "Number of Poor (1,000s)", "value": "Number of Poor (1,000s)"},
+                    {"label": "Access to Improved Drinking Water (% of Population)", "value": "Access to Improved Drinking Water (% of Population)"},
+                    {"label": "Access to Piped Water (% of Population)", "value": "Access to Piped Water (% of Population)"},
+                    {"label": "Access to Improved Drinking Water, Excluding Piped Water (% of Population)", "value": "Access to Improved Drinking Water, Excluding Piped Water (% of Population)"},
+                    {"label": "Access to Improved Water within 30 Minutes Round Trip", "value": "Access to Improved Water within 30 Minutes Round Trip"},
+                    {"label": "Access to Improved Toilet Facilities (% of Population)", "value": "Access to Improved Toilet Facilities (% of Population)"},
+                    {"label": "Access to Flush Toilet Connected to Sewer (% of Population)", "value": "Access to Flush Toilet Connected to Sewer (% of Population)"},
+                    {"label": "Access to Flush Toilet Connected to Septic Tank (% of Population)", "value": "Access to Flush Toilet Connected to Septic Tank (% of Population)"},
+                    {"label": "Open Defecation (% of Population)", "value": "Open Defecation (% of Population)"},
+                    {"label": "Access to Motorized Pump (% of Population)", "value": "Access to Motorized Pump (% of Population)"},
+                    {"label": "Access to Hand Pump (% of Population)", "value": "Access to Hand Pump (% of Population)"}
+                ],
+                value="Poverty Rate (%)",  # Default value
+                clearable=False,
+                style={"width": "60%", "paddingLeft": "10px", "paddingRight": "10px"}
+            ),
                 dcc.DatePickerRange(
                     id="date-picker",
                     # initial_visible_month=datetime.date.today(),
                 ),
             ],
-            style={"display": "flex", "justifyContent": "center", "marginBottom": "20px", "border": "2px solid #007BFF",
+            style={"display": "flex", "justifyContent": "center", "marginBottom": "20px",   "border": "2px solid #007BFF",
                 "borderRadius": "15px",
                 "padding": "10px",
                 "boxShadow": "0 4px 8px 0 rgba(0,0,0,0.2)",
@@ -285,4 +285,4 @@ app.layout = html.Div(
 
 
 if __name__ == "__main__":
-    app.run_server(debug=True, port=8051)
+    app.run_server(port=8051)
